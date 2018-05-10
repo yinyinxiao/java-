@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>regster</title>
+		<style type="text/css">
+		#form_1{
+			width: 800px;
+			border: 1px solid #808080;
+			margin: 0 auto;
+			margin-top: 50px;
+			height: 500px;
+		}
+		#form_1 ul li{
+			list-style: none;
+			list-style: none;
+width: 800px;
+height: 40px;
+margin-top: 2px;
+display: inline-block;
+		}
+		#form_1 ul{
+
+			margin-top: 100px;
+		}
+		.span_1{
+			    display: inline-block;
+    width: 100px;
+    text-align: right;
+    padding-top: 7px;
+		}
+		#form_1 ul li input{
+			height: 30px;
+    border: 1px solid #8B8B83;
+    width: 300px;
+		}
+		#form_1 ul li #sub_1{
+			margin-left: 100px;
+			width: 90px;
+			margin-top: 20px;
+		}
+		#form_1 ul li #sub_2{
+			width: 100px;
+    margin-left: 50px;
+		}
+				#form_1 ul li #a_1{
+			
+			display: inline-block;
+    color: #8B3626;
+    height: 30px;
+    text-align: center;
+    width: 130px;
+		}
+		</style>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script type="text/javascript">
+		$(function(){
+			var ok1 = false;
+			var ok2 = false;
+			var ok3 = false;
+			var reg1=/^[0-9]{7}[0-9]$/;//ID
+			var reg2=/^[\u4e00-\u9fa5]{1,18}[\u4e00-\u9fa5]$/;//名字
+			var reg3=/^[a-z0-9_-]{6,18}$/;//密码
+			//验证姓名
+			$('input[name="username"]').onklick=checkName("username");
+			$('input[name="username"]').focus(function() {
+							$(this).next().text('用户名为全中文，2到20之间');
+						}).blur(function() {
+							if(reg2.test($(this).val())) {
+								$(this).next().text('');
+								ok1 = true;
+							} else {
+								$(this).next().text('用户名输入有误');
+							}
+			}); 
+			//验证ID号
+			$('input[name="ID"]').focus(function(){
+				$(this).next().text("ID号必须为8位数字");
+			}).blur(function(){
+				if(reg1.test($(this).val())){
+					$(this).next().text(" ");
+					ok3=true;
+				}else{
+					$(this).next().text("密码不符合要求");
+				}
+			})
+		//验证密码
+		$('input[name="password"]').focus(function(){ 
+			$(this).next().text('密码应该为6-20位之间');
+		}).blur(function(){
+			if(reg3.test($(this).val())){
+				$(this).next().text('');
+				ok2=true;
+				}else{
+					$(this).next().text('密码不符合规范');
+				}
+			}); 
+			//提交按钮,所有验证通过方可提交 
+			$('.sub_1').click(function(){ 
+					if(ok1 && ok2 && ok3){
+						$('form').submit();
+					}else{ return false;
+					
+					}
+					});
+		});
+		
+		
+		function createRequest(url){
+			var http_request=false;
+			if(window.XMLHttpRequest){
+				http_request=new XMLHttpRequest();
+			}else if(window.ActiveXObject){
+				try{
+					http_request=new ActiveXObject("Msxml2.XMLHTTPR");
+				}catch(e){
+					try{
+						http_request=new ActiveXObject("Microsoft.XMLHTTP");
+					}catch(e){}
+				}
+			}
+			if(!http_request){
+			alert("不能创建XMLHttpRequest对象实例");
+			}
+			http_request.onreadystatechange=getResult;
+			http_request.open("POST",url,true);
+			http_request.send(null);
+		}
+		if(!http_request){
+			alert("不能创建XMLHttpRequest对象实例");
+		}
+		function getResult(){
+			if(http_request.readyState==4){
+				if(http_request.status==200){
+					document.getElementById("toolTip").innerHTML=http_request.responseText;
+				}else{
+					alert("您请求的页面有错误!");
+				}
+			}
+		}
+		function checkUser(userName){
+			if(userName.value==""){
+				alert("请输入用户名！");
+				userName.focus();
+				return;
+			}else{
+				createRequest('checUser.jsp?user='+encodeURLComponent(userName.value))
+			}	
+		}
+	</script>
+	</head>
+	<body>
+		<form id="form_1" action="http://localhost:8080/MyWebHomework/StudentRegesterResponse.jsp" method="post">
+            		<ul>
+ 	              		<li><span class="span_1">ID:</span><input type="text" name="ID" id="ID" /><span ></span></li>
+                		<li><span class="span_1">密码:</span><input type="password" name="password" /><span ></span></li>
+                		<li><span class="span_1">姓名:</span><input type="text" name="username"/><span ></span></li>
+                		<li ><input class="sub_1" id="sub_1" type="submit" name="S_submit" value="学生注册"/>
+                		<input class="sub_1" id="sub_2" type="submit" name="T_submit" value="教师注册"/>
+                		<a href="Enter.html" id="a_1">已经注册，登陆</a>
+                		</li>
+                	</ul>
+		</form>
+		<div id="toolTip"></div>
+	</body>
+	
+</html>

@@ -1,0 +1,20 @@
+如何在sevlet中获取请求信息
+	1.Servlet 的service()方法用于应答：因为每次请求都会调用service()方法
+		public void service(ServletRequest arg0, ServletResponse arg1)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+		ServletRequest:封装了请求信息，可以从中获取到任何请求信息
+		ServletResponse:封装了响应信息，如果想给用户什么响应，具体可以使用该接口的方法实现。
+		(这俩个接口的实现类都是服务器给予实现的，并在服务器调用service方法时传入)
+		
+		ServletRequest:
+			1).获取请求参数
+			 	1.String getParameter(String name):根据请求参数的名字返回参数值
+			 	2.String[] getParameterValues(String name):根据请求参数的名字，返回请求参数对应的字符串数组。input类型为checkbox的时候
+			 	3.Enumeration getParameterNames():返回参数名对应的Enumeration对象，类似于ServletConfig(或ServletContext)
+			 		的getInitParameterNames()方法
+					
+			 	4.Map getParameterMap():返回请求参数的键值对 key:参数明String型，value:参数值，是String数组类型。
+	2.获取请求的url
+	3.获取请求的方式

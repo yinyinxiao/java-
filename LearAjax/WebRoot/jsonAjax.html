@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=function(){
+	document.getElementsByTagName("a")[0].onclick=function(){
+		var request=new XMLHttpRequest;
+		
+		var url=this.href;
+		var method="GET";
+		 
+		request.open(method, url);
+		request.send(null);
+		
+		request.onreadystatechange=function(){
+			if(request.readyState==4){
+				if(request.status==200||request.status==304){
+					alert(request.responseText);
+				    var responsetext=eval("("+request.responseText+")");
+				    alert(responsetext.person.name);
+				}
+			}
+		}
+	return false;
+	}
+	}
+</script>
+</head>
+<body>
+	<a href="json.js">wo</a>
+	<p id="p"></p>
+</body>
+</html>

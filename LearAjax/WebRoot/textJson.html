@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	var jsonObject={
+		name:"liuyin",
+		age:22,
+		address:{city:"renhuai",school:"tianjian"},
+		teacing:function(){
+			alert(jsonObject.age);
+		}
+	};
+	//把字符串转换成Json对象
+	var testStr="alert('hellow eval')";
+	alert(testStr);
+	//eval()可以把一个字符串转换成一个js代码来执行
+	eval(testStr);
+	
+	var jsonStr="{'name':'liuyin'}";
+	//吧json字符串转化为json对象
+	var testObject=eval("("+jsonStr+")");
+	alert(testObject.name);
+</script>
+<body>
+
+</body>
+</html>

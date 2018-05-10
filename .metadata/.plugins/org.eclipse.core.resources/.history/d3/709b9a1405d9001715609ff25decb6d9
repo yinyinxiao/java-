@@ -1,0 +1,62 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>主页</title>
+    <style type="text/css">
+			body,img,html,p,div,ul,li,h1{
+				margin: 0;
+				padding: 0;
+		}
+		h1{
+			text-align: center;
+			background-color: gray;
+			color:ghostwhite;
+		}
+		
+#guider{
+	position: relative;
+	display: block;
+	width: auto;
+	background-color:white;
+	height: 100px;
+}
+#guider-inner{
+	display: block;
+	width:800px;
+	margin:0 auto;
+	background:gray;
+	height: 100px;
+}
+#guider-inner ul{
+	list-style: none;
+}
+#guider-inner ul li{
+	float: left;
+	display: block;
+	height: 100px;
+	line-height: 90px;
+	width: 400px;
+	text-align: center;	
+}
+#guider-inner ul li a{
+	color: #F0FFF0;
+	font-size: 25px;
+	text-decoration: none;
+}
+</style>
+  </head>
+  <body>
+  	<div id="bg">
+		<h1>欢迎来到我的网站</h1>
+		<div id="guider"> 
+        	<div id="guider-inner">
+         		<ul>
+          	    	<li><a href="Enter.html">登陆</a></li>
+          			<li><a href="Enter.html">注册</a></li>
+         		</ul>
+        	</div>
+       	</div>
+	</div>
+  </body>
+</html>

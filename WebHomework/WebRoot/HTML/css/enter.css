@@ -1,0 +1,58 @@
+span,html,body,ul,li,div,form,input,a{
+	margin: 0;
+	height: 0;
+}
+#enter{
+	display: block;
+	width: 400px;
+	height: 200px;
+	background-color: #CDC9A5;
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align: center;
+}
+#enter ul{
+	list-style: none;
+	width: 400px;
+	height: 200px;
+	padding: 0;
+}
+#enter ul li{
+	display: inline-block;
+	width: 300px;
+	height: 35px
+	border: 1px solid green;
+	margin-top: 30px;
+}
+.txt1{
+	height: 25px;
+	width: 200px;
+	display: inline-block;
+	font-size: 30px;
+}
+.psw{
+	height: 25px;
+	width: 200px;
+	display: inline-block;
+}
+span{
+	display:inline-block;
+	font: 20px;
+	font-family: arial;
+}
+#btnn{
+	margin-left: 100px;
+}
+#btn{
+	width: 120px;
+	height: 35px;
+	background: #808080;
+}
+#btnn2{
+	width: 120px;
+	height: 35px;
+	left: 60px;
+}
+a{
+	color: brown;
+}

@@ -1,0 +1,5 @@
+package siuyin.mvc.domain;
+
+public class Customer {
+
+}

@@ -1,0 +1,35 @@
+<%@ page language="java" import="java.util.*,java.sql.*" pageEncoding="utf-8"%>
+<%
+	try{
+	Class.forName("com.mysql.jdbc.Driver");
+	String url="jdbc:mysql://localhost:3306/school";
+	String username="root";
+	String password="liuyin520";
+	Connection conn=DriverManager.getConnection(url,username,password);
+ 	 	String id=new String(request.getParameter("id").getBytes("ISO-8859-1"),"utf-8");
+		String name=new String(request.getParameter("username").getBytes("ISO-8859-1"),"utf-8");
+		String classID=new String(request.getParameter("classID").getBytes("ISO-8859-1"),"utf-8");
+		
+/*  	
+ 		String id=new String("15102424".getBytes("ISO-8859-1"),"utf-8");
+ 		String name=new String("liuyin".getBytes("ISO-8859-1"),"utf-8");
+ 		String classID=new String("151024".getBytes("ISO-8859-1"),"utf-8");
+ 		 */
+	 String sql1 = "update students set Student_name=?,Class_id=? where Student_id=?";
+		
+		String sql2="select* from teachers";
+		
+		PreparedStatement ps=conn.prepareStatement(sql1);
+		ps.setString(1,name);
+		ps.setString(2, classID);
+		ps.setString(3,id);
+		ps.executeUpdate();		
+		ps.close();
+		conn.close();
+	}catch(ClassNotFoundException e){
+		e.printStackTrace();
+	}catch(SQLException e){
+		e.printStackTrace();
+	}
+	response.setHeader("refresh","0.1;URL=http://localhost:8080/WebLiuyin/School/StudentEnter.html");
+%>

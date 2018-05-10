@@ -1,0 +1,13 @@
+如何在sevlet中获取请求信息
+	1.Servlet 的service()方法用于应答：因为每次请求都会调用service()方法
+		public void service(ServletRequest arg0, ServletResponse arg1)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+		ServletRequest:封装了请求信息，可以从中获取到任何请求信息
+		ServletResponse:封装了响应信息，如果想给用户什么响应，具体可以使用该接口的方法实现。
+		(这俩个接口的实现类都是服务器给予实现的，并在服务器调用service方法时传入)
+		
+		ServletRequest:
+			1).请求
+	2.

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name></display-name>	
+  
+  <!-- 配置当前web应用的初始化参数 这个可以被servlet所获取
+  	<context-param>
+  	<param-name>driver</param-name>
+  	<param-value>silver.hellowSelverlet</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>jdbUrl</param-name>
+  	<param-value>abc</param-value>
+  </context-param>
+   -->
+  
+  <servlet>
+  <!-- servlet注册的名字 -->
+  	<servlet-name>hellowServlet</servlet-name>
+  	<!-- servlet的全类名 -->
+  	<servlet-class>silver.hellowSelverlet</servlet-class>
+  	
+  	<!-- 配置初始化参数 init-param 必须要放在load-on-startup的前面-->
+  	<init-param>
+  			<!-- 参数名 -->
+  		<param-name>user</param-name>
+  			<!-- 参数值 -->
+  		<param-value>root</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>password</param-name>
+  		<param-value>12345</param-value>
+  	</init-param>
+  	<!-- 指定servlet被创建的时期   负数时为第一次请求时被创建，0或正数，则在当前WEB应用被servlet容器加载时创建实例，且数值越小越被先创建
+  	<load-on-startup>1</load-on-startup>
+  	-->
+  </servlet>
+  <servlet-mapping>
+  <!-- 与某一个servlet节点的servlet-name子节点的文本节点一致 -->
+  	<servlet-name>hellowServlet</servlet-name>
+  	<!-- servlet映射访问的具体路径：/代表当前的web应用的根目录 -->
+  	<url-pattern>/hellow</url-pattern>
+  </servlet-mapping>
+  </web-app>

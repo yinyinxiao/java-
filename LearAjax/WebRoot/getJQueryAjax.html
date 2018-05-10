@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("a").click(function(){
+			var url=this.href;
+			$.get(url,function(data){
+			var name=$(data);
+			$("#p").empty().append(name);
+			});
+			return false;
+		});
+	});
+</script>
+</head>
+<body>
+<!--get() 进行异步请求，结果在回调函数的参数里面
+ 	结构是：get(url[,data][,callback][,type])
+ 	type:Sting类型，服务器返回类容的格式，包括xml,html,script,json,text和_default
+ 	callback:毁掉函数，只有两个参数，data代表返回的内容，可以是xml文档，json文档，html片段等等;textstatus代表请求状态，其值可
+ 				能为：success，error,notmodify,tomeout 4种。
+ 	$.get(),$.post()方法时是jquery的全局函数，而find()等方法都是jquery对象进行操作的方法；
+   -->
+   <h1>People</h1>
+   <ul>
+   	<li><a href="liuyin.html">liuyin</a></li>
+   	<li><a href="mo.html">moxuejiao</a></li>
+   	<li><a href="zhang.html">zhangning</a></li>
+   </ul>
+	<p id="p">women</p>
+</body>
+</html>

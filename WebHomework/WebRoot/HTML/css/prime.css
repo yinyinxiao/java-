@@ -1,0 +1,52 @@
+body,img,html,p,div,ul,li,h1{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font:20px/150% arial,verdana,"\5b8b\4f53";
+}
+#bg{
+	background-image: url(../img/bg.jpg);
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	position: relative;
+	height: 900px;
+}
+#h1{
+	display: block;
+	height: 50px;
+	text-align: center;
+	padding-top: 20px;
+	color: white;
+}
+#guider{
+	position: relative;
+	display: block;
+	width: auto;
+	background-color:#CDC9A5;
+	height: 100px;
+}
+#guider-inner{
+	display: block;
+	width:800px;
+	margin:0 auto;
+	background:#8B8970;
+	height: 100px;
+}
+#guider-inner ul{
+	list-style: none;
+}
+#guider-inner ul li{
+	float: left;
+	display: block;
+	height: 100px;
+	line-height: 90px;
+	width: 263px;
+	text-align: center;
+	
+}
+#guider-inner ul li a{
+	color: #F0FFF0;
+	font-size: 25px;
+	text-decoration: none;
+}

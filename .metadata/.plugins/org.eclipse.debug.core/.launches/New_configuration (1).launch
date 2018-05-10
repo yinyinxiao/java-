@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.dltk.javascript.launching.JavaScriptLaunchConfigurationType">
+<stringAttribute key="console_id" value="1510564737440"/>
+<stringAttribute key="mainScript" value="WebRoot/Login.html"/>
+<stringAttribute key="nature" value="org.eclipse.dltk.javascript.core.nature"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/GenerictServlet/WebRoot/Login.html"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="project" value="GenerictServlet"/>
+<stringAttribute key="url" value=""/>
+<booleanAttribute key="use_dltk_interactive_console" value="false"/>
+</launchConfiguration>

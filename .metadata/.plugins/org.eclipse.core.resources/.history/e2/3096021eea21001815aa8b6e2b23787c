@@ -1,0 +1,9 @@
+package siuyin.mvcapp.dao;
+/**
+ * 
+ * 
+ * 
+ * */
+public class Dao<T> {
+
+}

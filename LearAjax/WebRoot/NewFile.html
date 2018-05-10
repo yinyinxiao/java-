@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	window.onload=
+	function(){
+		document.getElementsByTagName("a")[0].onclick=function(){
+			var request =new XMLHttpRequest;
+			
+			var method="GET";
+			var path=this.href;
+			
+			request.open(method, path);
+			request.send(null);
+			request.onreadystatechange=function(){
+			if(request.readyState==4){
+				if(request.status==200||request.status==304){
+					var result=request.responseXML;
+					/*
+					<details>
+						<name>liuyin</name>
+						<website>http://www.baidu.com</website>
+						<email>1585802588@qq.com</email>
+					</details>
+					*/
+					var name=result.getElementsByTagName("name")[0].firstChild.nodeValue;
+					var website=result.getElementsByTagName("website")[0].firstChild.nodeValue;
+					var email=result.getElementsByTagName("email")[0].firstChild.nodeValue;
+					
+					var aNode=document.createElement("a");
+					aNode.appendChild(document.createTextNode(name));
+					aNode.href="mailto:"+email;
+					
+					var h2Node=document.createElement("h2");
+					h2Node.appendChild(aNode);
+					
+					var aNode2=document.createElement("a");
+					aNode2.appendChild(document.createTextNode(website));
+					aNode.href=website;
+					
+					var details=document.getElementById("details");
+					details.innerHTML=null;
+					details.appendChild(h2Node);
+					details.appendChild(aNode2);
+					
+				}
+			}
+			
+			}
+			
+			
+			return false;
+		}
+	}
+	
+</script>
+</head>
+<body>
+	<a href="NewFile.xml">点我</a>
+	<p id="details"></p>
+</body>
+</html>

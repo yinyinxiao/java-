@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>TeacherRegster</title>
+		<style type="text/css">
+		#form_1{
+			width: 800px;
+			border: 1px solid #808080;
+			margin: 0 auto;
+			margin-top: 50px;
+			height: 500px;
+		}
+		#form_1 ul li{
+			list-style: none;
+			list-style: none;
+width: 800px;
+height: 40px;
+margin-top: 2px;
+display: inline-block;
+		}
+		#form_1 ul{
+
+			margin-top: 100px;
+		}
+		.span_1{
+			    display: inline-block;
+    width: 100px;
+    text-align: right;
+    padding-top: 7px;
+		}
+		#form_1 ul li input{
+			height: 30px;
+    border: 1px solid #8B8B83;
+    width: 300px;
+		}
+		#form_1 ul li #sub_1{
+			margin-left: 100px;
+			width: 90px;
+			margin-top: 20px;
+		}
+		#form_1 ul li #sub_2{
+			width: 100px;
+    margin-left: 50px;
+		}
+				#form_1 ul li #a_1{
+			
+			display: inline-block;
+    color: #8B3626;
+    height: 30px;
+    text-align: center;
+    width: 130px;
+		}
+		</style>
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			var ok1 = false;
+			var ok2 = false;
+			var ok3 = false;
+			var ok4=false;
+			var reg4=/^[0-9]{5}[0-9]$/;//class_id
+			var reg1=/^[0-9]{7}[0-9]$/;//ID
+			var reg2=/^[\u4e00-\u9fa5]{1,18}[\u4e00-\u9fa5]$/;//名字
+			var reg3=/^[a-z0-9_-]{6,18}$/;//密码
+			//验证姓名
+			$('input[name="username"]').focus(function() {
+							$(this).next().text("用户名为全中文，2到20之间");
+						}).blur(function() {
+							if(reg2.test($(this).val())) {
+			
+									$(this).next().text("");
+									ok1 = true;
+								} else {
+								$(this).next().text("用户名输入有误");
+							}
+			}); 
+			//验证ID号
+			$("input[name='id']").focus(function(){
+				$(this).next().text("ID号必须为8位数字");
+			}).blur(function(){
+				if($(this).val()==""){
+					$(this).next().text("你输入的内容为空");
+					return;
+				} 
+				if(reg1.test($(this).val())){
+					$.get("http://localhost:8080/WebLiuyin/CheckStudentID.jsp?time=new Data()",{id:$(this).val()},
+					function(data){
+					$("#span1").text(data);
+					});//$("#tooTip").show();
+					ok2=true;
+				}else{
+					$(this).next().text("id 不符合要求");
+				}
+				
+				
+			});
+		//验证密码
+		$("input[name='password']").focus(function(){ 
+			$(this).next().text("密码应该为6-20位之间");
+		}).blur(function(){
+			if(reg3.test($(this).val())){
+					$.get("http://localhost:8080/WebLiuyin/CheckTeacherPassword.jsp?time=new Data()",{password:$(this).val()},
+					function(data){
+					$("#span2").text(data);
+					});
+					ok3=true;
+				}else{
+					$(this).next().text("密码不符合规范");
+				}
+			}); 
+			$('input[name="classID"]').focus(function(){
+				$(this).next().text("班级ID号必须为6位数字");
+			}).blur(function(){
+				if(reg4.test($(this).val())){
+					$(this).next().text(" ");
+					ok4=true;
+				}else{
+					$(this).next().text("classID不符合要求");
+				}
+			});
+			//提交按钮,所有验证通过方可提交 
+			$(".sub_1").click(function(){ 
+					if(ok1 && ok2 && ok3&&ok4){
+						$("form").submit();
+					}else{ return false;
+					
+					}
+					});
+		});
+	</script>
+	</head>
+	<body>
+		<form id="form_1" action="http://localhost:8080/WebLiuyin/StudentRegesterResponse.jsp" method="post" name="form1">
+            		<ul>
+ 	              		<li><span class="span_1">ID:</span><input type="text" name="id" id="ID" /><span id="span1"></span></li>
+                		<li><span class="span_1">密码:</span><input type="password" name="password" /><span id="span2"></span></li>
+                		<li><span class="span_1">姓名:</span><input type="text" name="username"/><span ></span></li>
+                		<li><span class="span_1">Class:</span><input type="text" name="classID" id="ID" /><span id="span3"></span></li>
+                		<li ><input class="sub_1" id="sub_1" type="submit" name="S_submit" value="学生注册"/>
+                		<input class="sub_1" id="sub_2" type="submit" name="T_submit" value="学生注册"/>
+                		<a href="http://localhost:8080/WebLiuyin/School/StudentEnter.html" id="a_1">已经注册，登陆</a>
+                		</li>
+                	</ul>
+		</form>
+		<div id="toolTip"></div>
+	</body>
+	
+</html>

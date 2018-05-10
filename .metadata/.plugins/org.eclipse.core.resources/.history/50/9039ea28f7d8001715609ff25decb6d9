@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./HTML/css/enter.css" />
+		<title>登陆</title>
+	</head>
+	<body>
+		<div >
+
+			<form id="enter">
+			<ul>
+				<li><input type="radio"/>教师</li>
+				<li><input type="radio"/>学生</li>
+				<li><span id="">学生账号：</span><input type="text" class="txt1"/></li>
+				<li><span id="">教师密码：</span><input type="password" / class="psw"></li>
+				<li id="btnn2"><input type="button" value="注册" id="btn"/></li>
+			</ul>
+		</form>
+		</div>
+	</body>
+</html>

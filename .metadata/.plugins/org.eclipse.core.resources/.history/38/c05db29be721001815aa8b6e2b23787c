@@ -1,0 +1,8 @@
+package siuyin.mvcapp.dao;
+/**
+ * 封装了基本的CRUD的方法，以供子类继承使用
+ * 当前DAO直接
+ * /
+public class Dao<T> {
+
+}

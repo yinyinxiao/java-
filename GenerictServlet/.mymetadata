@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="GenerictServlet"
+  id="myeclipse.1510559834329"
+  context-root="/GenerictServlet"
+  j2ee-spec="5.0"
+  archive="GenerictServlet.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

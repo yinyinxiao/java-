@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+				<style type="text/css">
+			html,body,header,i,div,ul,li,input{
+				margin: 0;
+				padding: 0;
+				border: none;
+				font-family: arial;
+				font-size:15px ;
+			}
+			header{
+				height: 60px;
+				background-color:#EBEBEB;
+			}
+			header a{
+				float: right;
+				height: 20px;
+				margin-top: 30px;
+				margin-right: 100px;
+				font-size: 20px;
+				color: #cd0000;
+			}
+			#bg_2{
+				width: 1800px;
+			}
+			#bg_2 div{
+				width: 1500px;
+				margin: 0 auto;
+			}
+			#p1{
+				font-size: 35px;
+				text-align: center;
+				color: gray;
+			}
+		
+		#form_1{
+			width: 800px;
+			border: 1px solid #4D4D4D;
+			margin: 0 auto;
+			margin-top: 50px;
+			height: 300px;
+		}
+		#form_1 ul li{
+			list-style: none;
+			list-style: none;
+width: 800px;
+height: 40px;
+
+margin-top: 2px;
+display: inline-block;
+		}
+		.span_1{
+			    display: inline-block;
+    width: 100px;
+    text-align: right;
+    padding-top: 7px;
+		}
+		#form_1 ul li input{
+			height: 30px;
+    border: 1px solid #8B8B83;
+    width: 300px;
+		}
+		#form_1 ul{
+			text-align: center;
+			margin-top: 50px;
+		}
+		#form_1 ul li #sub_1{
+			margin-left: 120px;
+			width: 90px;
+		}
+		#form_1 ul li #sub_2{
+			width: 100px;
+    margin-left: 50px;
+		}
+		#form_1 ul li #a_1{
+			
+			display: inline-block;
+    color: #8B3626;
+    height: 30px;
+    text-align: center;
+    width: 130px;
+		}
+		
+		
+		#insert_course_class{
+			width: 800px;
+			border: 1px solid #4D4D4D;
+			margin: 0 auto;
+			margin-top: 50px;
+			height: 300px;
+		}
+		#insert_course_class ul li{
+			list-style: none;
+			list-style: none;
+width: 800px;
+height: 40px;
+
+margin-top: 2px;
+display: inline-block;
+		}
+		#insert_course_class ul{
+			text-align: center;
+			margin-top:60px;
+		}
+		#insert_course_class ul li input{
+			height: 30px;
+    border: 1px solid #8B8B83;
+    width: 300px;
+		}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var ok3=false;
+				var ok2=false;
+			var reg1=/^[0-9]{2}[0-9]$/;//Cource_ID
+			var reg2=/^[0-9]{5}[0-9]$/;//class_id
+			//验证ID号
+			$('.ID').focus(function(){
+				$(this).next().text("ID号必须为3位数字");
+			}).blur(function(){
+				if(reg1.test($(this).val())){
+					$(this).next().text(" ");
+					ok3=true;
+				}else{
+					$(this).next().text("密码不符合要求");
+				}
+			});
+			$('input[name="ID_class"]').focus(function(){
+				$(this).next().text("班级ID号必须为6位数字");
+			}).blur(function(){
+				if(reg2.test($(this).val())){
+					$(this).next().text(" ");
+					ok3=true;
+				}else{
+					$(this).next().text("密码不符合要求");
+				}
+			});
+			
+				$('.sub_1').click(function(){ 
+					if(ok3&&ok2){
+						$('form').submit();
+					}else{ return false;
+					
+					}
+					});
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="techer_insert">
+			<form id="insert_course_class">
+			<ul>	
+						<li style="font-size: 25px;color: #4D4D4D; padding-left: 30px;margin-bottom: 10px;">请输入你教学的班级号及课程号</li>
+                		<li><span class="span_1">学科ID:</span><input type="text" name="ID_course" class="ID"/><span></span></li>
+                		<li><span class="span_1">班级ID:</span><input type="password" name="ID_class" class="ID" /><span></span></li>
+                		<li ><input class="sub_1" id="sub_1" style="width: 100px;margin-top: 15px;margin-left: 120px;" type="submit" name="S_submit" value="提交"/></li>
+                	</ul>	
+		</form>
+			<form id="form_1" action="false">
+                	<ul>
+                		<li style="font-size: 25px;color: #4D4D4D; padding-left: 30px;margin-bottom: 10px;">请选择你要输入和修改的成绩的班级号及课程号</li>
+                		<li><span class="span_1">学科ID:</span><input type="text" name="ID_course" class="ID"/><span></span></li>
+                		<li><span class="span_1">班级ID</span><input type="password" name="ID_class" class="ID"/><span></span></li>
+                		<li ><input class="sub_1" id="sub_1" type="submit" name="S_submit" value="提交"/></li>
+                	</ul>	
+                </form>
+		</div>
+	</body>
+</html>
